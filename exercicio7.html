@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            /*display:block;*/
+            margin-bottom:10px
+        }
+    </style>
+</head>
+<body>
+        <fieldset>
+            <legend>Cálculadora valor final</legend>
+            <div>
+                <label>Custo de fábrica:</label>
+                <input type="String" id ="custoFabrica" required>
+            </div>
+            <div>
+                <label>% distribuidor</label>
+                <input type="String" id ="percentualDistribuidor" required>
+            </div>
+            <div>
+                <label>% impostos</label>
+                <input type="String" id ="percentualImposto" required>
+            </div>
+            <div class="col-md-12">
+                <button onclick="calcular()"class="btn btn-success">Calcular</button>
+            </div>
+            <div>
+                <label>Valor final</label>
+                <input type="String" id ="valorFinal">
+            </div>
+        </fieldset>
+    <script>
+        function calcular(){
+            var custoFabrica = parseFloat(document.getElementById('custoFabrica').value);
+            var percentualDistribuidor = parseFloat(document.getElementById('percentualDistribuidor').value);
+            var percentualImposto = parseFloat(document.getElementById('percentualImposto').value);
+            var valorFinal = custoFabrica + (custoFabrica*(percentualDistribuidor/100)) + (custoFabrica*(percentualImposto/100));
+            document.getElementById('valorFinal').value = valorFinal.toFixed(2)
+        }
+    </script>
+</body>
+</html>

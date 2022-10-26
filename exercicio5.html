@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+
+    <title>Exercício 5</title>
+  </head>
+  <body class="d-flex vw-100 vh-100 align-items-center justify-content-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <label class="form-label">Número 1: </label>
+              <input type="form-control" id="num1">
+            </div>
+            <div class="col-md-12">
+                <label class="form-label">Número 2</label>
+                <input type="form-control" id="num2">
+            </div>
+            <div class="col-md-12">
+                <label class="form-label">Operação</label>
+                <select id="op">
+                    <option value="+">Soma</option>
+                    <option value="-">Subtração</option>
+                    <option value="/">Divisão</option>
+                    <option value="*">Multiplicação</option>
+                </select>
+            </div>
+            <div class="col-md-12">
+                <button onclick="Calcular()" class="btn btn-primary">Calcular</button>
+            </div>
+            <div class="col-md-12">
+                <input type="number" class="form-control" id="resultado">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function Calcular(){
+            var operacao = document.getElementById('op').value;
+            switch (operacao) {
+                case '+':
+                Somar();
+                break;
+
+                case '-':
+                Subtrair();
+                break;
+                
+                case '/':
+                Dividir();
+                break;
+
+                case '*':
+                Multiplicar();
+                break;
+            }
+        }
+        function Somar(){
+            var num1 = document.getElementById('num1');
+            var num2 = document.getElementById('num2');
+            var soma = parseFloat(num1.value) + parseFloat(num2.value);
+            document.getElementById('resultado').value = soma;
+        }
+
+        function Subtrair(){
+            var num1 = document.getElementById('num1');
+            var num2 = document.getElementById('num2');
+            var subtracao = parseFloat(num1.value) - parseFloat(num2.value);
+            document.getElementById('resultado').value = subtracao;
+        }
+
+        function Dividir(){
+            var num1 = document.getElementById('num1');
+            var num2 = document.getElementById('num2');
+            var divisao = parseFloat(num1.value) / parseFloat(num2.value);
+            document.getElementById('resultado').value = divisao;
+        }
+
+        function Multiplicar(){
+            var num1 = document.getElementById('num1');
+            var num2 = document.getElementById('num2');
+            var multiplicacao = parseFloat(num1.value) * parseFloat(num2.value);
+            document.getElementById('resultado').value = multiplicacao;
+        }
+    </script>
+  </body>
+</html>
